@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Welcome To Blog{% endblock title %}
+
+{% block cssFiles %}
+<link rel="stylesheet" href={% static 'blogapp/style.css' %}>
+{% endblock cssFiles %}
+
+
+{% block content %}
+
+<div class="container">
+  <h1>Latest Posts</h1>
+  <div class="postsContainer">
+    {% for blog in blogs %} 
+    {% include 'includes/postContainer.html'%}
+        {% endfor %}
+  </div>
+</div>
+    
+{% endblock content %}

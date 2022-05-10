@@ -1,0 +1,9 @@
+<a href="{% url 'main:postDetail' blog.id %}" class="postContainerLink">
+  <div class="postContainer">
+    <div>
+      <h3>{{blog.title}}</h3>
+      <p>{{blog.author.get_full_name}}</p>
+    </div>
+    <p>{{blog.text}}</p>
+  </div>
+</a>

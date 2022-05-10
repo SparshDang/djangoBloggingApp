@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Creat Post{% endblock title %}
+
+{% block cssFiles %}
+<link rel="stylesheet" href={% static 'blogapp/createPost.css' %}>
+{% endblock cssFiles %}
+
+{% block content %}
+
+<h1>Create Post</h1>
+
+<form action="#" method="post">
+  {% csrf_token %}
+
+  <div class="create">
+    <label for="title">
+      {{form.title.label}}
+    </label>
+    {{form.title}}
+    <label for="text">
+      {{form.text.label}}
+    </label>
+    {{form.text}}
+  </div>
+  <div class="buttons">
+    <button type='button'><a href="{% url 'auth:account' user.id %}">Cancel</a></button>
+    <button type="submit">Post</button>
+  </div>
+  </form>
+
+{% endblock content %}
+

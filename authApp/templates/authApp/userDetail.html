@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{user.get_full_name}}{% endblock title %}
+
+{% block cssFiles %} 
+<link rel="stylesheet" href={% static 'authApp/userDetail.css' %}>
+{% endblock cssFiles %}
+
+
+{% block content %}
+
+<div class="information">
+  <h1>Information</h1>
+  <table>
+    <tr>
+      <td>Username</td>
+      <td>{{user.get_username}}</td>
+    </tr>
+    <tr>
+      <td>Full Name</td>
+      <td>{{user.get_full_name}}</td>
+    </tr>
+    <tr>
+      <td>Number of Posts</td>
+      <td>{{user.blog.count}}</td>
+    </tr>
+  </table>
+  <button><a href="{% url 'auth:deleteUser' %}">Delete Account</a></button>
+</div>
+
+<div class="likedPosts">
+  <h1>Liked Posts</h1>
+  {% if user.likes.all|length > 0   %}
+  <div class="postsContainer">
+      {% for blog in user.likes.all %}
+        {% include 'includes/postContainer.html' %}
+      {% endfor %}
+    </div>
+    {% else %}
+      <h3>You don't have any liked post</h3>
+    {% endif %}
+</div>
+
+<div class="posts">
+  <h1>Your Posts</h1>
+  {% if user.blog.all|length > 0 %}
+        {% for blog in user.blog.all %}
+          {% include 'includes/postContainer.html' %}
+        {% endfor %}
+
+  {% else %}
+  <h3>You don't have any posts</h3>
+  {% endif %}
+
+  {% if user.id == request.user.id %}
+  <button class='createPost'> <a href="{% url "main:postCreate" %}">Add a post</a></button>
+  {% endif %}
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sign In{% endblock title %}
+
+{% block cssFiles %}
+<link rel="stylesheet" href={% static 'authApp/signIn.css' %}>
+{% endblock cssFiles %}
+
+{% block content %}
+
+<div class="formContainer">
+  <h1>Sign In</h1>
+  <form action="{% url 'auth:signIn' %}" method="post">
+    {% csrf_token %}
+    <div class="form">
+      <div class="errors">
+        
+        {% for type,error in form.errors.items %}
+        {{error}}
+        {% endfor %}
+      </div>
+      <div class="fields">
+        {{form.username.label}}
+        {{form.username}}
+        {{form.first_name.label}}
+        {{form.first_name}}
+        {{form.last_name.label}}
+        {{form.last_name}}
+        {{form.password.label}}
+        {{form.password}}
+        <button type="submit">Create Account</button>
+      </div>
+    </div>
+  </form>
+  <p class='logInPara'>Aleardy have account <a href="{% url 'auth:login' %}">Log in here.</a></p>
+</div>
+
+
+{% endblock content %}
+  

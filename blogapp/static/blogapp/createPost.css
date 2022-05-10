@@ -1,0 +1,53 @@
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 40px;
+}
+
+.create {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  gap: 10px;
+}
+
+.create > input,
+textarea {
+  padding: 5px;
+  font-size: 20px;
+}
+
+textarea {
+  resize: none;
+  height: 300px;
+}
+
+.create > label {
+  font-size: 18px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+  gap: 10px;
+}
+
+.buttons > button {
+  width: 10%;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  color: white;
+}
+
+.buttons > button[type="button"] {
+  background-color: red;
+}
+
+.buttons > button[type="button"] > a {
+  color: white;
+}
+.buttons > button[type="submit"] {
+  background-color: green;
+}

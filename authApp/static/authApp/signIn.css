@@ -1,0 +1,45 @@
+.formContainer {
+  border: 2px solid rgb(178, 178, 178);
+  border-radius: 10px;
+  width: 50%;
+  margin: 10px auto;
+  padding: 10px;
+
+  box-shadow: 10px 10px 10px 10px rgb(160, 160, 160);
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fields > input {
+  padding: 3px;
+  font-size: 20px;
+}
+
+.fields > button {
+  padding: 10px;
+  margin: 2px;
+  font-size: 20px;
+  border: 2px solid rgb(160, 160, 160);
+  border-radius: 10px;
+  background-color: transparent;
+  align-self: center;
+  width: 25%;
+}
+
+li {
+  list-style: none;
+  color: red;
+}
+
+.logInPara {
+  text-align: center;
+}
